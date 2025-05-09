@@ -18,7 +18,7 @@ class _MainBottomNavigationBarScreenState
   int _selectedIndex = 0;
   final List<Widget> _screens = [
     MainHomeScreen(),
-    MainChatScreen(),
+    ChatListScreen(),
     MainWishListScreen(),
     ProfileScreen(),
   ];
