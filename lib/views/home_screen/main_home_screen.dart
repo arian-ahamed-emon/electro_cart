@@ -123,7 +123,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SafeArea(child: Drawer(backgroundColor: Colors.orange)),
+      drawer: SafeArea(child: Drawer(child: buildDrawerSection(context))),
       appBar: AppBar(
         //backgroundColor: Colors.amberAccent,
         centerTitle: true,
@@ -214,20 +214,102 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               buttonText: 'See All',
               onPressed: () {},
             ),
-           SizedBox(
-             height: 230,
-             child: ListView.builder(
-               itemCount: arrivalItems.length,
-               scrollDirection: Axis.horizontal,
-               itemBuilder: (context, index) {
-                 final item = arrivalItems[index];
-                 return _buildNewArrivalCard(item);
-               },
-             ),
-           )
+            SizedBox(
+              height: 230,
+              child: ListView.builder(
+                itemCount: arrivalItems.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  final item = arrivalItems[index];
+                  return _buildNewArrivalCard(item);
+                },
+              ),
+            ),
           ],
         ),
       ),
+    );
+  }
+
+  Column buildDrawerSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        DrawerHeader(
+          decoration: BoxDecoration(color: Colors.orange),
+          child: Row(
+            children: [
+              CircleAvatar(
+                radius: 30,
+                backgroundImage: AssetImage(
+                  'assets/images/profile.jpg',
+                ), // Use user's profile image
+              ),
+              SizedBox(width: 16),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Hello, Arian 👋",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                  Text(
+                    "dev.emon.bd@gmail.com",
+                    style: TextStyle(fontSize: 14, color: Colors.white70),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        ListTile(
+          leading: Icon(Icons.home, color: Colors.orange),
+          title: Text("Home"),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.shopping_cart, color: Colors.orange),
+          title: Text("My Cart"),
+          onTap: () {},
+        ),
+        ListTile(
+          leading: Icon(Icons.favorite, color: Colors.orange),
+          title: Text("Wishlist"),
+          onTap: () {},
+        ),
+        ListTile(
+          leading: Icon(Icons.category, color: Colors.orange),
+          title: Text("Categories"),
+          onTap: () {},
+        ),
+        ListTile(
+          leading: Icon(Icons.notifications, color: Colors.orange),
+          title: Text("Notifications"),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NotificationScreen()),
+            );
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.settings, color: Colors.orange),
+          title: Text("Settings"),
+          onTap: () {},
+        ),
+        Spacer(),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.logout, color: Colors.redAccent),
+          title: Text("Logout"),
+          onTap: () {
+            // Handle logout logic
+          },
+        ),
+      ],
     );
   }
 
@@ -239,11 +321,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 5,
-            offset: Offset(0, 2),
-          ),
+          BoxShadow(color: Colors.black12, blurRadius: 5, offset: Offset(0, 2)),
         ],
       ),
       child: Column(
@@ -324,8 +402,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       ),
     );
   }
-
-
 
   Widget _buildProductCard(Product item) {
     return Container(

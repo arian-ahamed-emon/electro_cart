@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Electro Cart',
-          home: MainBottomNavigationBarScreen(),
+          home: SplashScreen(),
         );
       },
     );

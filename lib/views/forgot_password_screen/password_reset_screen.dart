@@ -16,14 +16,14 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: Colors.orangeAccent,
       body: SafeArea(
         child: Column(
           children: [
             Container(
               height: 180.h,
               width: 390.w,
-              decoration: BoxDecoration(color: Colors.amberAccent),
+              decoration: BoxDecoration(color: Colors.orangeAccent),
               child: Row(
                 children: [
                   Padding(
@@ -95,7 +95,7 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
                             width: double.infinity,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.amberAccent,
+                                backgroundColor: Colors.orangeAccent,
                                 fixedSize: Size(50.w, 30.h),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
