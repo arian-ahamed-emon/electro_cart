@@ -64,7 +64,7 @@ class _MainCartScreenState extends State<MainCartScreen> {
             child: ListTile(
               leading: Image.asset(cartItems[index].image),
               title: Text(cartItems[index].name),
-              subtitle: Text('৳${cartItems[index].price.toStringAsFixed(2)}',style: TextStyle(color: Colors.amber,fontWeight: FontWeight.bold),),
+              subtitle: Text('৳${cartItems[index].price.toStringAsFixed(2)}',style: TextStyle(color: Colors.orangeAccent,fontWeight: FontWeight.bold),),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

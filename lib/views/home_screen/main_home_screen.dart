@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:electro_cart/models/aririvals_product_model.dart';
 import 'package:electro_cart/views/notification/notification_screen.dart';
 import 'package:electro_cart/widgets/flash_sell_bar.dart';
 import 'package:flutter/material.dart';
@@ -70,6 +71,29 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       image: 'assets/images/headphone.png',
       price: 239,
       discountedPrice: 199,
+    ),
+  ];
+  final List<NewArrivalsProduct> arrivalItems = [
+    NewArrivalsProduct(
+      oldPrice: 120,
+      price: 130,
+      discountPrice: 300,
+      title: 'BrandNew BackPack 9x Expensive',
+      image: 'assets/images/bag-1.png',
+    ),
+    NewArrivalsProduct(
+      oldPrice: 120,
+      price: 130,
+      discountPrice: 300,
+      title: 'BrandNew BackPack 9x Expensive',
+      image: 'assets/images/bag-1.png',
+    ),
+    NewArrivalsProduct(
+      oldPrice: 120,
+      price: 130,
+      discountPrice: 300,
+      title: 'BrandNew BackPack 9x Expensive',
+      image: 'assets/images/bag-1.png',
     ),
   ];
 
@@ -166,15 +190,16 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                     );
                   }).toList(),
             ),
-            SizedBox(height: 15),
-            category_section(),
             SizedBox(height: 10),
+            CategorySection(
+              title: 'Category',
+              buttonText: 'See All',
+              onPressed: () {},
+            ),
             buildCategorySection(),
             Padding(padding: const EdgeInsets.all(8.0), child: FlashSaleBar()),
-            SizedBox(height: 10),
-            SizedBox(height: 10),
             SizedBox(
-              height: 200,
+              height: 160,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: flashItems.length,
@@ -184,11 +209,123 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                 },
               ),
             ),
+            CategorySection(
+              title: 'New Arrivals ',
+              buttonText: 'See All',
+              onPressed: () {},
+            ),
+           SizedBox(
+             height: 230,
+             child: ListView.builder(
+               itemCount: arrivalItems.length,
+               scrollDirection: Axis.horizontal,
+               itemBuilder: (context, index) {
+                 final item = arrivalItems[index];
+                 return _buildNewArrivalCard(item);
+               },
+             ),
+           )
           ],
         ),
       ),
     );
   }
+
+  Widget _buildNewArrivalCard(NewArrivalsProduct item) {
+    return Container(
+      width: 160,
+      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 5,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                child: Image.asset(
+                  item.image,
+                  height: 150,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Positioned(
+                top: 6,
+                left: 6,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: Colors.redAccent,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    "-${item.discountPrice}%",
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 6,
+                right: 6,
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 14,
+                  child: Icon(
+                    Icons.favorite_border,
+                    color: Colors.red,
+                    size: 18,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  item.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  "\$${item.price}",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "\$${item.oldPrice}",
+                  style: TextStyle(
+                    decoration: TextDecoration.lineThrough,
+                    color: Colors.grey,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+
 
   Widget _buildProductCard(Product item) {
     return Container(
@@ -248,7 +385,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
 
   SizedBox buildCategorySection() {
     return SizedBox(
-      height: 120,
+      height: 90,
       child: GridView.builder(
         scrollDirection: Axis.horizontal,
         physics: BouncingScrollPhysics(),

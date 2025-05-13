@@ -22,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.deepPurple, Colors.purple],
+                    colors: [Colors.orangeAccent, Colors.orange],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      radius: 50,
+                      radius: 60,
                       backgroundImage: AssetImage('assets/images/profile.jpg'),
                     ),
                     const SizedBox(height: 10),
@@ -42,14 +42,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       userName,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 22,
+                        fontSize: 26,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 5),
                     Text(
                       email,
-                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                      style: TextStyle(color: Colors.white70, fontSize: 16),
                     ),
                     const SizedBox(height: 10),
                     ElevatedButton(
@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       "\$120.00",
                       Icons.account_balance_wallet,
                     ),
-                    _buildInfoCard("Points", "850", Icons.stars),
+                    _buildInfoCard("Points", "120", Icons.stars),
                     _buildInfoCard("Status", "Gold", Icons.verified),
                   ],
                 ),

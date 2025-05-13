@@ -1,10 +1,17 @@
-
 import 'package:flutter/material.dart';
 
-class category_section extends StatelessWidget {
-  const category_section({
-    super.key,
-  });
+class CategorySection extends StatelessWidget {
+  final String title;
+  final String buttonText;
+  final VoidCallback? onPressed;
+
+  const CategorySection({
+    Key? key,
+    required this.title,
+    this.buttonText = 'See All',
+    this.onPressed,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,14 +20,14 @@ class category_section extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Category',
-            style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
+            title,
+            style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: onPressed ?? () {},
             child: Text(
-              'See All',
-              style: TextStyle(fontSize: 15, color: Colors.grey),
+              buttonText,
+              style: const TextStyle(fontSize: 15, color: Colors.grey),
             ),
           ),
         ],
