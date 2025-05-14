@@ -1,4 +1,5 @@
-import 'package:electro_cart/views/sign_in_screen/sign_in_screen.dart';
+import 'package:electro_cart/app/assets_path.dart';
+import 'package:electro_cart/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,8 +39,7 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
                     ),
                   ),
                   SizedBox(width: 28.sp),
-                  Image.asset(
-                    'assets/images/create_password.png',
+                  Image.asset( AssetPath.cratePasswordImg,
                     height: 200.h,
                     width: 180.w,
                   ),

@@ -1,25 +1,23 @@
-import 'package:electro_cart/views/home_screen/main_bottom_navigation_bar_screen.dart';
+import 'package:electro_cart/app/assets_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../forgot_password_screen/forgot_password_email_screen.dart';
+import 'forgot_password_otp_screen.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class ForgotPasswordEmailScreen extends StatefulWidget {
+  const ForgotPasswordEmailScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<ForgotPasswordEmailScreen> createState() =>
+      _ForgotPasswordEmailScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
   TextEditingController _emaillTEController = TextEditingController();
-  TextEditingController _passwordTEController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Colors.orangeAccent,
       body: SafeArea(
         child: Column(
@@ -33,19 +31,19 @@ class _SignInScreenState extends State<SignInScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'Login',
+                      'Password Reset',
                       style: TextStyle(
-                        fontSize: 24.sp,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.black87,
                       ),
                     ),
                   ),
-                  SizedBox(width: 70.sp),
+                  SizedBox(width: 30.sp),
                   Image.asset(
-                    'assets/images/login_l.png',
-                    height: 220.h,
-                    width: 200.w,
+                    AssetPath.resetPasswordImg,
+                    height: 200.h,
+                    width: 180.w,
                   ),
                 ],
               ),
@@ -82,34 +80,6 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                           ),
                           const SizedBox(height: 16),
-                          const Text('Password:'),
-                          const SizedBox(height: 7),
-                          TextField(
-                            controller: _passwordTEController,
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: '******',
-                              filled: true,
-                              fillColor: Colors.grey[200],
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.r),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          Align(
-                            alignment: FractionalOffset.centerRight,
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordEmailScreen(),),);
-                              },
-                              child: Text(
-                                'Forgot Password?',
-                                style: TextStyle(color: Colors.orangeAccent),
-                              ),
-                            ),
-                          ),
                           const SizedBox(height: 10),
                           SizedBox(
                             width: double.infinity,
@@ -125,32 +95,22 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                               ),
                               onPressed: () {
-                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MainBottomNavigationBarScreen(),), (_) => false);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => ForgotPasswordOtpScreen(),
+                                  ),
+                                );
                               },
                               child: const Text(
-                                "Login",
+                                "Next",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 20),
-                          const Center(child: Text("OR")),
-                          const SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: const [
-                              SocialIcon(
-                                icon: FontAwesomeIcons.facebookF,
-                                color: Color(0xFF4267B2),
-                              ),
-                              SocialIcon(
-                                icon: FontAwesomeIcons.google,
-                                color: Color(0xFFDB4437),
-                              ),
-                            ],
                           ),
                         ],
                       ),
@@ -164,20 +124,5 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
-
 }
 
-class SocialIcon extends StatelessWidget {
-  final IconData icon;
-  final Color color;
-
-  const SocialIcon({required this.icon, required this.color, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: color,
-      child: Icon(icon, color: Colors.white),
-    );
-  }
-}

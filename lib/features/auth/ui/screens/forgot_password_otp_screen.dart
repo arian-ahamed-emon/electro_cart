@@ -1,4 +1,5 @@
-import 'package:electro_cart/views/forgot_password_screen/password_reset_screen.dart';
+import 'package:electro_cart/app/assets_path.dart';
+import 'package:electro_cart/features/auth/ui/screens/password_reset_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -39,8 +40,7 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
                     ),
                   ),
                   SizedBox(width: 30.sp),
-                  Image.asset(
-                    'assets/images/otp_verify.png',
+                  Image.asset(AssetPath.verificationImg,
                     height: 200.h,
                     width: 180.w,
                   ),

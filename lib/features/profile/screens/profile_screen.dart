@@ -1,3 +1,4 @@
+import 'package:electro_cart/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -111,13 +112,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
-                    _buildSettingsTile(Icons.notifications, "Notifications"),
-                    _buildSettingsTile(Icons.language, "Language"),
-                    _buildSettingsTile(Icons.lock, "Change Password"),
+                    _buildSettingsTile(
+                      Icons.notifications,
+                      "Notifications",
+                      onTap: () {},
+                    ),
+                    _buildSettingsTile(
+                      Icons.language,
+                      "Language",
+                      onTap: () {},
+                    ),
+                    _buildSettingsTile(
+                      Icons.lock,
+                      "Change Password",
+                      onTap: () {},
+                    ),
                     _buildSettingsTile(
                       Icons.logout,
                       "Log Out",
                       color: Colors.red,
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignInScreen(),
+                          ),
+                          (_) => false,
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -172,12 +194,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     IconData icon,
     String title, {
     Color color = Colors.black,
+    required VoidCallback onTap,
   }) {
     return ListTile(
       leading: Icon(icon, color: color),
       title: Text(title, style: TextStyle(color: color)),
       trailing: Icon(Icons.arrow_forward_ios, size: 16, color: color),
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }

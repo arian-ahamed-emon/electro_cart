@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:electro_cart/models/cart_item.dart';
+import 'package:electro_cart/features/home/data/models/cart_item.dart';
 import 'package:flutter/material.dart';
 
 class MainCartScreen extends StatefulWidget {

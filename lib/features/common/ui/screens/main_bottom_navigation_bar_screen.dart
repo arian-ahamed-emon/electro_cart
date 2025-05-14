@@ -1,8 +1,8 @@
-import 'package:electro_cart/views/home_screen/main_cart_screen.dart';
-import 'package:electro_cart/views/home_screen/main_chat_screen.dart';
-import 'package:electro_cart/views/home_screen/main_home_screen.dart';
-import 'package:electro_cart/views/home_screen/main_wish_list_screen.dart';
-import 'package:electro_cart/views/home_screen/profile_screen.dart';
+import 'package:electro_cart/features/cart/ui/screens/main_cart_screen.dart';
+import 'package:electro_cart/features/chat/screens/main_chat_screen.dart';
+import 'package:electro_cart/features/home/ui/screens/main_home_screen.dart';
+import 'package:electro_cart/features/wishlist/screens/main_wish_list_screen.dart';
+import 'package:electro_cart/features/profile/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainBottomNavigationBarScreen extends StatefulWidget {

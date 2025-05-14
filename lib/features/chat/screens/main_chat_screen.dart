@@ -1,4 +1,4 @@
-import 'package:electro_cart/views/home_screen/virtual_assistant_screen.dart';
+import 'package:electro_cart/features/chat/screens/virtual_assistant_screen.dart';
 import 'package:flutter/material.dart';
 
 

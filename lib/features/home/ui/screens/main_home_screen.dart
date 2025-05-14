@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:electro_cart/models/aririvals_product_model.dart';
-import 'package:electro_cart/views/notification/notification_screen.dart';
-import 'package:electro_cart/widgets/flash_sell_bar.dart';
+import 'package:electro_cart/features/home/data/models/aririvals_product_model.dart';
+import 'package:electro_cart/features/home/ui/screens/notification_screen.dart';
+import 'package:electro_cart/features/home/ui/widgets/flash_sell_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../models/product_model.dart';
-import '../../widgets/category_section.dart';
+import '../../data/models/product_model.dart';
+import '../widgets/category_section.dart';
 
 class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});

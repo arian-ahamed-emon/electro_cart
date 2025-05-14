@@ -1,4 +1,5 @@
-import 'package:electro_cart/views/sign_in_screen/sign_in_screen.dart';
+import 'package:electro_cart/app/assets_path.dart';
+import 'package:electro_cart/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +16,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _moveToNextScreen();
-
   }
 
   _moveToNextScreen() {
-    Future.delayed(Duration(seconds: 3),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen(),));
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => SignInScreen()),
+      );
     });
   }
 
@@ -33,8 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(height: 18.h,),
-              Image.asset('assets/images/Logo.png'),
+              SizedBox(height: 18.h),
+              Image.asset(AssetPath.appLogo),
               Container(
                 height: 30.h,
                 width: 130.w,
@@ -48,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   strokeWidth: 1.h,
                 ),
               ),
-              SizedBox(height: 1.h,)
+              SizedBox(height: 1.h),
             ],
           ),
         ),
