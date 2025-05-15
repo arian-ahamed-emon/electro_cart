@@ -73,9 +73,9 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
                               animationType: AnimationType.fade,
                               pinTheme: PinTheme(
                                 shape: PinCodeFieldShape.box,
-                                borderRadius: BorderRadius.circular(5),
-                                fieldHeight: 50,
-                                fieldWidth: 40,
+                                borderRadius: BorderRadius.circular(5.r),
+                                fieldHeight: 50.h,
+                                fieldWidth: 40.w,
                                 activeFillColor: Colors.white,
                                 selectedFillColor: Colors.white,
                                 inactiveFillColor: Colors.white

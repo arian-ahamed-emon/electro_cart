@@ -1,6 +1,6 @@
 import 'package:electro_cart/features/chat/screens/virtual_assistant_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatListScreen extends StatelessWidget {
   const ChatListScreen({super.key});
@@ -16,7 +16,7 @@ class ChatListScreen extends StatelessWidget {
           ListTile(
             leading: CircleAvatar(
               backgroundImage: AssetImage('assets/images/virtual assistant.png'),
-              radius: 25,
+              radius: 25.r,
             ),
             title: const Text(
               'Virtual Assistant',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Product {
   final String title;
@@ -49,7 +50,8 @@ class _MainWishListScreenState extends State<MainWishListScreen> {
           ? Center(
         child: Text(
           'Your wishlist is empty.',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 18.sp
+          ),
         ),
       )
           : ListView.builder(
@@ -61,8 +63,8 @@ class _MainWishListScreenState extends State<MainWishListScreen> {
             child: ListTile(
               leading: Image.asset(
                 item.image,
-                width: 60,
-                height: 60,
+                width: 60.w,
+                height: 60.h,
                 fit: BoxFit.cover,
               ),
               title: Text(item.title),

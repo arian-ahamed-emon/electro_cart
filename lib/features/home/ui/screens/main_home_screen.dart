@@ -125,7 +125,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     return Scaffold(
       drawer: SafeArea(child: Drawer(child: buildDrawerSection(context))),
       appBar: AppBar(
-        //backgroundColor: Colors.amberAccent,
         centerTitle: true,
         actions: [
           CircleAvatar(
@@ -154,7 +153,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               },
               icon: CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Image.asset('assets/images/app-drawer.png', height: 30),
+                child: Image.asset('assets/images/app-drawer.png', height: 30.h),
               ),
             );
           },
@@ -168,7 +167,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
             SizedBox(height: 15),
             CarouselSlider(
               options: CarouselOptions(
-                height: 200.0,
+                height: 200.0.h,
                 autoPlay: true,
                 enlargeCenterPage: true,
                 enableInfiniteScroll: true,
@@ -199,7 +198,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
             buildCategorySection(),
             Padding(padding: const EdgeInsets.all(8.0), child: FlashSaleBar()),
             SizedBox(
-              height: 160,
+              height: 160.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: flashItems.length,
@@ -240,7 +239,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           child: Row(
             children: [
               CircleAvatar(
-                radius: 30,
+                radius: 30.r,
                 backgroundImage: AssetImage(
                   'assets/images/profile.jpg',
                 ), // Use user's profile image
@@ -252,11 +251,11 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                 children: [
                   Text(
                     "Hello, Arian 👋",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: TextStyle(fontSize: 18.sp, color: Colors.white),
                   ),
                   Text(
                     "dev.emon.bd@gmail.com",
-                    style: TextStyle(fontSize: 14, color: Colors.white70),
+                    style: TextStyle(fontSize: 14.sp, color: Colors.white70),
                   ),
                 ],
               ),
@@ -315,13 +314,13 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
 
   Widget _buildNewArrivalCard(NewArrivalsProduct item) {
     return Container(
-      width: 160,
+      width: 160.w,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
-          BoxShadow(color: Colors.black12, blurRadius: 5, offset: Offset(0, 2)),
+          BoxShadow(color: Colors.black12, blurRadius: 5.r, offset: Offset(0, 2)),
         ],
       ),
       child: Column(
@@ -333,7 +332,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
                 child: Image.asset(
                   item.image,
-                  height: 150,
+                  height: 150.h,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
@@ -349,7 +348,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                   ),
                   child: Text(
                     "-${item.discountPrice}%",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: Colors.white, fontSize: 12.sp),
                   ),
                 ),
               ),
@@ -358,11 +357,11 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                 right: 6,
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius: 14,
+                  radius: 14.r,
                   child: Icon(
                     Icons.favorite_border,
                     color: Colors.red,
-                    size: 18,
+                    size: 18.sp,
                   ),
                 ),
               ),
@@ -392,7 +391,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                   style: TextStyle(
                     decoration: TextDecoration.lineThrough,
                     color: Colors.grey,
-                    fontSize: 12,
+                    fontSize: 12.sp,
                   ),
                 ),
               ],
@@ -405,7 +404,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
 
   Widget _buildProductCard(Product item) {
     return Container(
-      width: 140,
+      width: 140.w,
       margin: EdgeInsets.only(left: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -413,7 +412,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           Stack(
             children: [
               Container(
-                height: 100,
+                height: 100.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -434,7 +433,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                   ),
                   child: Text(
                     "-${item.discountedPrice}%",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: Colors.white, fontSize: 12.sp),
                   ),
                 ),
               ),
@@ -461,7 +460,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
 
   SizedBox buildCategorySection() {
     return SizedBox(
-      height: 90,
+      height: 90.h,
       child: GridView.builder(
         scrollDirection: Axis.horizontal,
         physics: BouncingScrollPhysics(),
@@ -484,7 +483,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                 CircleAvatar(
                   child: Image.asset(
                     category['image']!,
-                    height: 60,
+                    height: 60.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -511,7 +510,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
-                    blurRadius: 10,
+                    blurRadius: 10.r,
                     offset: Offset(0, 4),
                   ),
                 ],
@@ -538,7 +537,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               onPressed: () {},
               icon: Image.asset(
                 'assets/images/slider-navigation.png',
-                height: 20,
+                height: 20.h,
               ),
             ),
           ),

@@ -1,8 +1,6 @@
-import 'dart:ffi';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:electro_cart/features/home/data/models/cart_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainCartScreen extends StatefulWidget {
   const MainCartScreen({super.key});
@@ -91,18 +89,18 @@ class _MainCartScreenState extends State<MainCartScreen> {
           children: [
             Text(
               '৳${totalPrice.toStringAsFixed(2)}',
-              style: TextStyle(color: Colors.black, fontSize: 18),
+              style: TextStyle(color: Colors.black, fontSize: 18.sp),
             ),
             ElevatedButton(
               onPressed: () {},
-              child: Text('Checkout'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.amberAccent,
                 foregroundColor: Colors.black,
                 shape: BeveledRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(7))
+                  borderRadius: BorderRadius.all(Radius.circular(7.r))
                 )
               ),
+              child: Text('Checkout'),
             ),
           ],
         ),

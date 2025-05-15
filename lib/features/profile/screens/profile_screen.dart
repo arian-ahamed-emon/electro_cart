@@ -1,5 +1,6 @@
 import 'package:electro_cart/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -28,14 +29,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
+                    bottomLeft: Radius.circular(30.r),
+                    bottomRight: Radius.circular(30.r),
                   ),
                 ),
                 child: Column(
                   children: [
                     CircleAvatar(
-                      radius: 60,
+                      radius: 60.r,
                       backgroundImage: AssetImage('assets/images/profile.jpg'),
                     ),
                     const SizedBox(height: 10),
@@ -43,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       userName,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 26,
+                        fontSize: 26.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -157,16 +158,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Container(
         padding: const EdgeInsets.all(16),
-        width: 100,
+        width: 100.w,
         child: Column(
           children: [
             Icon(icon, color: Colors.deepPurple),
             const SizedBox(height: 8),
             Text(
               value,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
             ),
-            Text(title, style: TextStyle(fontSize: 12, color: Colors.grey)),
+            Text(title, style: TextStyle(fontSize: 12.sp, color: Colors.grey)),
           ],
         ),
       ),
@@ -185,7 +186,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Icon(icon, color: Colors.deepPurple),
         ),
         const SizedBox(height: 5),
-        Text(label, style: TextStyle(fontSize: 12)),
+        Text(label, style: TextStyle(fontSize: 12.sp)),
       ],
     );
   }
