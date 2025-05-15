@@ -1,19 +1,18 @@
 import 'package:electro_cart/app/assets_path.dart';
 import 'package:electro_cart/features/auth/ui/controllers/auth_controller.dart';
-import 'package:electro_cart/features/auth/ui/screens/sign_up_screen.dart';
+import 'package:electro_cart/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'forgot_password_email_screen.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final AuthController authController = Get.put(AuthController());
@@ -37,7 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Text(
-                        'Login',
+                        'SignUp',
                         style: TextStyle(
                           fontSize: 26.sp,
                           fontWeight: FontWeight.bold,
@@ -49,7 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     Padding(
                       padding: const EdgeInsets.only(right: 12.0),
                       child: Image.asset(
-                        AssetPath.loginImg,
+                        AssetPath.signUpImg,
                         height: 140.h,
                         width: 140.w,
                       ),
@@ -101,16 +100,18 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 5),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {
-                            Get.off(()=> ForgotPasswordEmailScreen());
-                          },
-                          child: Text(
-                            'Forgot Password?',
-                            style: TextStyle(color: Colors.orangeAccent),
+                      const SizedBox(height: 16),
+                      const Text('Confirm Password:'),
+                      const SizedBox(height: 7),
+                      TextField(
+                        controller: _passwordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.grey[200],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.r),
+                            borderSide: BorderSide.none,
                           ),
                         ),
                       ),
@@ -133,7 +134,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             );
                           },
                           child: const Text(
-                            "Login",
+                            "SignUp",
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
@@ -147,13 +148,13 @@ class _SignInScreenState extends State<SignInScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Don't have an account? "),
+                          const Text("Have an account? "),
                           GestureDetector(
                             onTap: () {
-                              Get.off(() => SignUpScreen());
+                              Get.off(()=> SignInScreen());
                             },
                             child: const Text(
-                              "Sign up",
+                              "Sign in",
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold,

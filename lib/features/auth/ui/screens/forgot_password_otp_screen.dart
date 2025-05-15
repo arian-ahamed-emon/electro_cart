@@ -8,12 +8,12 @@ class ForgotPasswordOtpScreen extends StatefulWidget {
   const ForgotPasswordOtpScreen({super.key});
 
   @override
-  State<ForgotPasswordOtpScreen> createState() => _ForgotPasswordOtpScreenState();
+  State<ForgotPasswordOtpScreen> createState() =>
+      _ForgotPasswordOtpScreenState();
 }
 
 class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
-  TextEditingController _otpTEController = TextEditingController();
-
+  TextEditingController _otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,8 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
                     ),
                   ),
                   SizedBox(width: 30.sp),
-                  Image.asset(AssetPath.verificationImg,
+                  Image.asset(
+                    AssetPath.verificationImg,
                     height: 200.h,
                     width: 180.w,
                   ),
@@ -61,70 +62,70 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: 20),
-                            const Text('Email:'),
-                            const SizedBox(height: 7),
-                            PinCodeTextField(
-                              keyboardType: TextInputType.number,
-                              length: 6,
-                              obscureText: false,
-                              animationType: AnimationType.fade,
-                              pinTheme: PinTheme(
-                                shape: PinCodeFieldShape.box,
-                                borderRadius: BorderRadius.circular(5.r),
-                                fieldHeight: 50.h,
-                                fieldWidth: 40.w,
-                                activeFillColor: Colors.white,
-                                selectedFillColor: Colors.white,
-                                inactiveFillColor: Colors.white
-                              ),
-                              animationDuration: Duration(milliseconds: 300),
-                              enableActiveFill: true,
-                              controller: _otpTEController,
-                              onCompleted: (v) {
-                                print("Completed");
-                              },
-                              onChanged: (value) {
-                                print(value);
-                                setState(() {
-                                  var currentText = value;
-                                });
-                              },
-                              beforeTextPaste: (text) {
-                                print("Allowing to paste $text");
-                                return true;
-                              }, appContext: context,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 20),
+                          const Text('Email:'),
+                          const SizedBox(height: 7),
+                          PinCodeTextField(
+                            keyboardType: TextInputType.number,
+                            length: 6,
+                            obscureText: false,
+                            animationType: AnimationType.fade,
+                            pinTheme: PinTheme(
+                              shape: PinCodeFieldShape.box,
+                              borderRadius: BorderRadius.circular(5.r),
+                              fieldHeight: 50.h,
+                              fieldWidth: 40.w,
+                              activeFillColor: Colors.white,
+                              selectedFillColor: Colors.white,
+                              inactiveFillColor: Colors.white,
                             ),
-                             SizedBox(height: 16),
-                            const SizedBox(height: 10),
-                            SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.orangeAccent,
-                                  fixedSize: Size(50.w, 30.h),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 14,
-                                  ),
+                            animationDuration: Duration(milliseconds: 300),
+                            enableActiveFill: true,
+                            controller: _otpController,
+                            onCompleted: (v) {
+                              print("Completed");
+                            },
+                            onChanged: (value) {
+                              print(value);
+                              setState(() {});
+                            },
+                            appContext: context,
+                          ),
+                          SizedBox(height: 16),
+                          const SizedBox(height: 10),
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.orangeAccent,
+                                fixedSize: Size(50.w, 30.h),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
-                                onPressed: () {
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PasswordResetScreen(),),);
-                                },
-                                child: const Text(
-                                  "Next",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 14,
                                 ),
                               ),
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PasswordResetScreen(),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                "Next",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
                             ),
-                          ]
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -137,5 +138,3 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
     );
   }
 }
-
-

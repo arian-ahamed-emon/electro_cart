@@ -12,7 +12,7 @@ class PasswordResetScreen extends StatefulWidget {
 }
 
 class _PasswordResetScreenState extends State<PasswordResetScreen> {
-  TextEditingController _emaillTEController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -63,10 +63,9 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(height: 20),
-                          const Text('Email:'),
                           const SizedBox(height: 7),
                           TextField(
-                            controller: _emaillTEController,
+                            controller: _passwordController,
                             decoration: InputDecoration(
                               hintText: 'Password',
                               filled: true,
@@ -78,7 +77,7 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
                             ),
                           ), const SizedBox(height: 10),
                           TextField(
-                            controller: _emaillTEController,
+                            controller: _passwordController,
                             decoration: InputDecoration(
                               hintText: 'Confirm Password',
                               filled: true,

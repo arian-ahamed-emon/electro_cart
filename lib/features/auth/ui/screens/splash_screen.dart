@@ -3,6 +3,7 @@ import 'package:electro_cart/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,10 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _moveToNextScreen() {
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => SignInScreen()),
-      );
+      Get.offAll(()=>SignInScreen());
     });
   }
 
